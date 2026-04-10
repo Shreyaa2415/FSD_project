@@ -16,21 +16,18 @@ public class DepartmentController {
     @Autowired
     private DepartmentRepository departmentRepository;
 
-    // ✅ POST — Add a new department
     @PostMapping("/add")
     public ResponseEntity<Department> addDepartment(@RequestBody Department department) {
         Department savedDepartment = departmentRepository.save(department);
         return ResponseEntity.ok(savedDepartment);
     }
 
-    // ✅ GET — Get all departments
     @GetMapping("/all")
     public ResponseEntity<List<Department>> getAllDepartments() {
         List<Department> departments = departmentRepository.findAll();
         return ResponseEntity.ok(departments);
     }
 
-    // ✅ GET — Get department by ID
     @GetMapping("/{deptId}")
     public ResponseEntity<Department> getDepartmentById(@PathVariable int deptId) {
         Optional<Department> department = departmentRepository.findById(deptId);
@@ -38,7 +35,6 @@ public class DepartmentController {
                          .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // ✅ DELETE — Delete department by ID
     @DeleteMapping("/{deptId}")
     public ResponseEntity<Void> deleteDepartmentById(@PathVariable int deptId) {
         if (departmentRepository.existsById(deptId)) {

@@ -1,0 +1,226 @@
+{
+  "info": {
+    "_postman_id": "0db3b5f2-5bfd-4e78-bb98-43f5b2f2c34a",
+    "name": "FSD Project API",
+    "description": "Postman collection for class-controller and department-controller endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:9091"
+    },
+    {
+      "key": "classId",
+      "value": "1"
+    },
+    {
+      "key": "deptId",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "class-controller",
+      "item": [
+        {
+          "name": "Update Class",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"section\": \"B\",\n  \"department\": {\n    \"deptId\": {{deptId}}\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/class/update/{{classId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "class",
+                "update",
+                "{{classId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add Class",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"section\": \"A\",\n  \"department\": {\n    \"deptId\": {{deptId}}\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/class/add",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "class",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Class By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/class/getid/{{classId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "class",
+                "getid",
+                "{{classId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Classes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/class/all",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "class",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Class",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/class/delete/{{classId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "class",
+                "delete",
+                "{{classId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "department-controller",
+      "item": [
+        {
+          "name": "Add Department",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deptName\": \"Computer Science\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/department/add",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "department",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Department By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/department/{{deptId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "department",
+                "{{deptId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Department",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/department/{{deptId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "department",
+                "{{deptId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Departments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/department/all",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "department",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

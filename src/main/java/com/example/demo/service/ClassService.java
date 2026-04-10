@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.Entity.Class;
-import com.example.demo.Entity.Department;
+import com.example.demo.Entity.Department; // isko add kiya hai becoz Department bhi chahiye hume
 import com.example.demo.repository.Classrepository;
 import com.example.demo.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class ClassService {
+public class ClassService { // simply functions banaya he jo controller use karega
 
     @Autowired
     private Classrepository classRepository;
 
     @Autowired
-    private DepartmentRepository departmentRepository;
+    private DepartmentRepository departmentRepository; // DepartmentRepository ko bhi inject kiya hai becoz dummy use karenge
 
     public Optional<Class> getClassById(int id) {
         return classRepository.findById(id);

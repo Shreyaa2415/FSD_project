@@ -23,7 +23,7 @@ public class Class {
         this.department = department;
     }
 
-    // Getters & setters
+    // getters n setters
     public int getClassId() {
         return classId;
     }

@@ -24,16 +24,14 @@ public class ClassController {
     @Autowired
     private DepartmentRepository deptRepo;
 
-    // ✅ GET class by ID
-    @GetMapping("/getid/{classId}")
+    @GetMapping("/getid/{classId}") // GET class by id
     public ResponseEntity<Class> getClassById(@PathVariable int classId) {
         Optional<Class> cls = classService.getClassById(classId);
         return cls.map(ResponseEntity::ok)
                   .orElseGet(() -> ResponseEntity.notFound().build());
     }
-
-    // ✅ POST add new class (with department)
-    @PostMapping("/add")
+ 
+    @PostMapping("/add") // POST new class department ke sath 
     public ResponseEntity<?> addClass(@RequestBody Class cls) {
         if (cls.getDepartment() == null || cls.getDepartment().getDeptId() == 0) {
             return ResponseEntity.badRequest().body("❌ Department ID is required.");
@@ -49,8 +47,7 @@ public class ClassController {
         return ResponseEntity.ok(savedClass);
     }
 
-    // ✅ PUT update existing class
-    @PutMapping("/update/{classId}")
+    @PutMapping("/update/{classId}") // PUT class update karne ke liye 
     public ResponseEntity<?> updateClass(@PathVariable int classId, @RequestBody Class updatedClass) {
         Optional<Class> existingOpt = classRepo.findById(classId);
         if (existingOpt.isEmpty()) {
@@ -72,15 +69,13 @@ public class ClassController {
         return ResponseEntity.ok(saved);
     }
 
-    // ✅ DELETE class by IDk
-    @DeleteMapping("/delete/{classId}")
+    @DeleteMapping("/delete/{classId}")   // DELETE class by id
     public ResponseEntity<Void> deleteClassById(@PathVariable int classId) {
         boolean deleted = classService.deleteClassById(classId);
         return deleted ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
 
-    // ✅ GET all classes (optional but useful)
-    @GetMapping("/all")
+    @GetMapping("/all")     // GET all classes 
     public ResponseEntity<?> getAllClasses() {
         return ResponseEntity.ok(classRepo.findAll());
     }
