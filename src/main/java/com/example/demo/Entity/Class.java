@@ -10,6 +10,7 @@ public class Class {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int classId;
 
+    @Column(nullable = false)
     private String section;
 
     @Column(nullable = false)
